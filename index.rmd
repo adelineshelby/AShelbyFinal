@@ -7,6 +7,10 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(readxl)
 ```
 
 ## R Markdown
@@ -18,8 +22,12 @@ blah blah blah doing more edits meep meep
 This is for the final draft. 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
+```{r}
+FC_rmd <- read_excel("Flat_GIS_Final.xls")
+FC_rmd_graph <- ggplot(data = FC_rmd, aes(x= Site)) + 
+  geom_bar(stat = "count")
+
+plot(FC_rmd_graph)
 ```
 
 ## Including Plots
