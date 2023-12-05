@@ -19,6 +19,7 @@ This is an R Markdown document created for the final project for the Data Manage
 
 blah blah blah doing more edits meep meep
 
+helloooooo
 This is for the final draft. 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
@@ -29,7 +30,7 @@ FC_rmd_graph <- ggplot(data = FC_rmd, aes(x= Site)) +
 
 plot(FC_rmd_graph)
 ```
-
+WHY DID MY GRAPH NOT LOAD
 ## Including Plots
 
 You can also embed plots, for example:
