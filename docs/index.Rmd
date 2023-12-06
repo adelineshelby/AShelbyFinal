@@ -4,6 +4,7 @@ author: "Adeline Shelby"
 date: "11/30/2023"
 output: html_document
 ---
+<br>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE, message=FALSE, warning=FALSE, error=FALSE, fig.cap = "")
@@ -15,13 +16,13 @@ library(png)
 library(grid)
 ```
 
-## R Markdown
+
 
 This is an R Markdown document created for the final project for the Data Management/GIS course. It includes data and pictures from my thesis titled: "**Assessing the adaptive response of reciprocally outplanted *Orbicella annularis* along nearshore and offshore reefs in St Thomas, US Virgin Islands**". 32 parent colonies across 4 sites (2 turbid nearshore and 2 clear offshore locations) were sampled via fragmentation. These fragments were then outplanted along their natal reefs and the other corresponding foreign reefs, i.e. a reciprocal outplant. Every month for 12-months, environmental parameters and coral health/survivability are monitored. The objectives of this study are to 1) be able to measure and quantify the environmental characteristics across four sites and 2) assess and understand the differences in physiological reaction of outplanted coral. 
 
 ***
 
-```{r, fig.align='center', fig.width=6, fig.height=4, fig.cap="Figure 1: Simplified Diagram of Reciprocal Transplant", echo=FALSE}
+```{r, fig.align='center', fig.width=6, fig.height=3, fig.cap="Figure 1. Simplified diagram of reciprocal transplant methods", echo=FALSE}
 
 
 
@@ -29,8 +30,10 @@ swap <- readPNG("swap_diag.png")
 grid.raster(swap)
 ```
 
-
-
+***
+<br>
+Below I have included a bar graph of the health data of my fragments. This is only a snapshot of what they were exhibiting in late October after the heat stress from the summer months. 
+<br><br>
 
 ```{r, include = FALSE}
 FC_rmd <- read_excel("Flat_GIS_Final.xls")
@@ -40,6 +43,7 @@ plot(FC_rmd_graph)
 
 
 ```
+
 ```{r, include=FALSE}
 SB_rmd <- read_excel("Saba_GIS_Final.xlsx")
 SB_rmd2 <- ggplot(data = SB_rmd, aes(x = Site, fill = Health)) +
@@ -51,7 +55,7 @@ plot(SB_rmd2)
 ```
 
 
-```{r out.width=c('50% , 50%'), fig.show='hold', echo=FALSE}
+```{r out.width=c('50% , 50%'), fig.show='hold', fig.align='center', fig.width=6, fig.height=6, fig.cap="Figure 2. and Figure 3. Fragment health data from October within clear offshore sites. Bleaching is seen across all coral, but coral sourced from Rupert's Rock and Saba Island have a (slightly) higher amount of apparently healthy fragments. " , echo=FALSE}
 FC_rmd2 <- ggplot(data = FC_rmd, aes(x = Site, fill = Health)) +
   geom_bar(stat = "count" , position = "fill") +
   scale_y_continuous(labels = scales::percent) +
@@ -59,6 +63,7 @@ FC_rmd2 <- ggplot(data = FC_rmd, aes(x = Site, fill = Health)) +
   scale_fill_manual(values = c("#DDCC77", "#661100", "#CC6677"))
 plot(FC_rmd2)
 plot(SB_rmd2)
+
 
 ```
 
