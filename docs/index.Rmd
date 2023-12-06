@@ -90,5 +90,6 @@ plot(RR_rmd2)
 <br>
 
 ***
+
 ### Early Conclusions
 It is interesting how much can change each month. At the halfway mark of my project, coral sourced from Hassel Island had remained healthy across all 4 sites. Given its heartiness, I was ready to suggest we use coral from areas comparable to this area for restoration projects. That was premature, however, as we hadn't yet seen the impacts of the summer bleaching event. At 8 months, things seem less conclusive. But I still have lots of growth, HOBO, and PAR data to go through and analyze (-: 
