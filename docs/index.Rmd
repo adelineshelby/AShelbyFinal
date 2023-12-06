@@ -18,7 +18,9 @@ library(grid)
 
 ## R Markdown
 
-This is an R Markdown document created for the final project for the Data Management/GIS course. It includes data and pictures from my thesis titled: "**Assessing the adaptive response of reciprocally outplanted *Orbicella annularis* along nearshore and offshore reefs in St Thomas, US Virgin Islands**". 32 parent colonies across 4 sites (2 turbid nearshore and 2 clear offshore locations) were sampled via fragmentation. These fragments were then outplanted along their natal reefs and the other corresponding foreign reefs, i.e. a reciprocal outplant (see below). Every month for 12-months, environmental parameters and coral health/survivability are monitored. The objectives of this study are to 1) be able to measure and quantify the environmental characteristics across four sites and 2) assess and understand the differences in physiological reaction of outplanted coral. 
+This is an R Markdown document created for the final project for the Data Management/GIS course. It includes data and pictures from my thesis titled: "**Assessing the adaptive response of reciprocally outplanted *Orbicella annularis* along nearshore and offshore reefs in St Thomas, US Virgin Islands**". 32 parent colonies across 4 sites (2 turbid nearshore and 2 clear offshore locations) were sampled via fragmentation. These fragments were then outplanted along their natal reefs and the other corresponding foreign reefs, i.e. a reciprocal outplant. Every month for 12-months, environmental parameters and coral health/survivability are monitored. The objectives of this study are to 1) be able to measure and quantify the environmental characteristics across four sites and 2) assess and understand the differences in physiological reaction of outplanted coral. 
+
+***
 
 ```{r, echo=FALSE}
 swap <- readPNG("swap_diag.png")
@@ -28,13 +30,23 @@ grid.raster(swap)
 
 
 
-```{r}
+```{r, include = FALSE}
 FC_rmd <- read_excel("Flat_GIS_Final.xls")
 FC_rmd_graph <- ggplot(data = FC_rmd, aes(x= Site)) + 
   geom_bar(stat = "count")
 plot(FC_rmd_graph)
+
+
 ```
 
+```{r}
+FC_rmd2 <- ggplot(data = FC_rmd, aes(x = Site, fill = Health)) +
+  geom_bar(stat = "count" , position = "fill") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title= "Flat Cay", y = "Percent", x = "Fragment Origin") +
+  scale_fill_manual(values = c("#DDCC77", "#661100", "#CC6677"))
+plot(FC_rmd2)
+```
 ## Including Plots
 
 You can also embed plots, for example:
