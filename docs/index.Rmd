@@ -6,8 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(cache=TRUE, message=FALSE, warning=FALSE, error=FALSE, fig.cap = "")
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
@@ -22,7 +21,10 @@ This is an R Markdown document created for the final project for the Data Manage
 
 ***
 
-```{r, echo=FALSE}
+```{r, fig.align='center', fig.width=6, fig.height=4, fig.cap="Figure 1: Simplified Diagram of Reciprocal Transplant", echo=FALSE}
+
+
+
 swap <- readPNG("swap_diag.png")
 grid.raster(swap)
 ```
@@ -38,16 +40,28 @@ plot(FC_rmd_graph)
 
 
 ```
+```{r, include=FALSE}
+SB_rmd <- read_excel("Saba_GIS_Final.xlsx")
+SB_rmd2 <- ggplot(data = SB_rmd, aes(x = Site, fill = Health)) +
+  geom_bar(stat = "count" , position = "fill") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title= "Saba Island", y = "Percent", x = "Fragment Origin") +
+  scale_fill_manual(values = c("#DDCC77", "#661100", "#CC6677"))
+plot(SB_rmd2)
+```
 
-```{r}
+
+```{r out.width=c('50% , 50%'), fig.show='hold', echo=FALSE}
 FC_rmd2 <- ggplot(data = FC_rmd, aes(x = Site, fill = Health)) +
   geom_bar(stat = "count" , position = "fill") +
   scale_y_continuous(labels = scales::percent) +
   labs(title= "Flat Cay", y = "Percent", x = "Fragment Origin") +
   scale_fill_manual(values = c("#DDCC77", "#661100", "#CC6677"))
 plot(FC_rmd2)
+plot(SB_rmd2)
+
 ```
-## Including Plots
+
 
 You can also embed plots, for example:
 
